@@ -77,9 +77,17 @@ async function testSwarmReadiness() {
     apiAccess: false
   };
 
+  // Import fs once
+  let fs;
+  try {
+    fs = await import('fs');
+  } catch (error) {
+    console.log('   ❌ Error importing fs module');
+    return checks;
+  }
+
   // Check if node_modules exists
   try {
-    const fs = await import('fs');
     checks.nodeModules = fs.existsSync('./node_modules');
     console.log(`   ${checks.nodeModules ? '✅' : '❌'} Node modules installed`);
   } catch (error) {
@@ -88,7 +96,6 @@ async function testSwarmReadiness() {
 
   // Check if build script exists
   try {
-    const fs = await import('fs');
     const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
     checks.buildScript = !!packageJson.scripts?.build;
     console.log(`   ${checks.buildScript ? '✅' : '❌'} Build script available`);

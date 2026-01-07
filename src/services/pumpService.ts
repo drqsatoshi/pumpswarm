@@ -99,12 +99,16 @@ export async function refreshTokenData(mintAddress: string): Promise<PumpTokenDa
   const data = await fetchTokenData(mintAddress);
   if (!data) return null;
   
-  // Simulate some market activity
+  // Simulate realistic market activity with bounded changes
+  const marketCapChange = (Math.random() - 0.5) * 200; // +/- $100 change
+  const solChange = (Math.random() - 0.5) * 2000000000; // +/- 2 SOL change
+  const replyChange = Math.random() < 0.3 ? Math.floor(Math.random() * 3) : 0; // 30% chance of 0-2 new replies
+  
   const updatedData = {
     ...data,
-    market_cap: data.market_cap + Math.random() * 1000,
-    virtual_sol_reserves: data.virtual_sol_reserves + Math.random() * 1000000000,
-    reply_count: data.reply_count + Math.floor(Math.random() * 3),
+    market_cap: Math.max(1000, data.market_cap + marketCapChange), // Minimum $1k, realistic change
+    virtual_sol_reserves: Math.max(0, data.virtual_sol_reserves + solChange),
+    reply_count: data.reply_count + replyChange,
   };
   
   return updatedData;

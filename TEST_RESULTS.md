@@ -5,7 +5,7 @@
 This document outlines the test results for the pumpswarm application testing against the pump.fun environment with npm build system.
 
 ## Test Date
-- **Date**: January 7, 2026
+- **Date**: January 7, 2026 (Test Environment)
 - **Environment**: Development
 - **Node Version**: Latest
 - **NPM**: Latest
