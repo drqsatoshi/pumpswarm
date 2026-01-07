@@ -3,8 +3,13 @@
  * Fetches token data from pump.fun for the $NPM token
  */
 
-const CONTRACT_ADDRESS = 'EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump';
-const PUMP_FUN_API_BASE = 'https://frontend-api.pump.fun';
+import { 
+  PUMP_FUN_API_BASE, 
+  CONTRACT_ADDRESS, 
+  GRADUATION_THRESHOLD_SOL, 
+  MAX_PROGRESS_BEFORE_COMPLETE,
+  DEFAULT_REFRESH_INTERVAL_MS 
+} from './constants';
 
 export interface PumpFunTokenData {
   mint: string;
@@ -91,12 +96,11 @@ export function getBondingCurveProgress(tokenData: PumpFunTokenData): number {
   
   // Calculate based on virtual reserves if available
   const solReserves = tokenData.virtual_sol_reserves || 0;
-  const targetSol = 85; // Typical pump.fun graduation threshold is ~85 SOL
   
   if (solReserves === 0) return 0;
   
-  const progress = (solReserves / targetSol) * 100;
-  return Math.min(Math.round(progress), 99); // Cap at 99% until complete
+  const progress = (solReserves / GRADUATION_THRESHOLD_SOL) * 100;
+  return Math.min(Math.round(progress), MAX_PROGRESS_BEFORE_COMPLETE); // Cap at 99% until complete
 }
 
 /**
@@ -104,7 +108,7 @@ export function getBondingCurveProgress(tokenData: PumpFunTokenData): number {
  */
 export async function startTokenDataRefresh(
   callback: (data: PumpFunTokenData) => void,
-  intervalMs: number = 30000 // Default: 30 seconds
+  intervalMs: number = DEFAULT_REFRESH_INTERVAL_MS
 ): Promise<() => void> {
   // Initial fetch
   try {

@@ -7,6 +7,7 @@ import {
   getBondingCurveProgress,
   getMarketCap
 } from '@/lib/pumpFunApi';
+import { DEFAULT_REFRESH_INTERVAL_MS } from '@/lib/constants';
 import { eventBus } from '@/lib/eventBus';
 
 interface UsePumpFunDataOptions {
@@ -28,7 +29,7 @@ interface UsePumpFunDataResult {
  * Hook to fetch and manage pump.fun token data
  */
 export function usePumpFunData(options: UsePumpFunDataOptions = {}): UsePumpFunDataResult {
-  const { autoRefresh = true, refreshInterval = 30000 } = options;
+  const { autoRefresh = true, refreshInterval = DEFAULT_REFRESH_INTERVAL_MS } = options;
   
   const [data, setData] = useState<PumpFunTokenData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

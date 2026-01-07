@@ -1,4 +1,5 @@
 import { usePumpFunData } from '@/hooks/usePumpFunData';
+import { DEFAULT_REFRESH_INTERVAL_MS, REFRESH_ANIMATION_DURATION } from '@/lib/constants';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,7 @@ import { useState } from 'react';
 export const PumpFunStatusContainer = () => {
   const { data, loading, error, refresh, hasGraduated, bondingCurveProgress, marketCap } = usePumpFunData({
     autoRefresh: true,
-    refreshInterval: 30000, // 30 seconds
+    refreshInterval: DEFAULT_REFRESH_INTERVAL_MS,
   });
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -17,7 +18,7 @@ export const PumpFunStatusContainer = () => {
   const handleRefresh = async () => {
     setIsRefreshing(true);
     await refresh();
-    setTimeout(() => setIsRefreshing(false), 500);
+    setTimeout(() => setIsRefreshing(false), REFRESH_ANIMATION_DURATION);
   };
 
   if (error) {

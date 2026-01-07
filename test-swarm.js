@@ -5,8 +5,10 @@
  * Tests pump.fun API integration and swarm functionality
  */
 
-const CONTRACT_ADDRESS = 'EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump';
-const PUMP_FUN_API_BASE = 'https://frontend-api.pump.fun';
+// Configuration - can be overridden with environment variables
+const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS || 'EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump';
+const PUMP_FUN_API_BASE = process.env.PUMP_FUN_API_BASE || 'https://frontend-api.pump.fun';
+const GRADUATION_THRESHOLD_SOL = 85;
 
 // Color codes for terminal output
 const colors = {
@@ -77,11 +79,10 @@ async function testRaydiumGraduation(tokenData) {
     
     // Calculate bonding curve progress
     const solReserves = tokenData.virtual_sol_reserves || 0;
-    const targetSol = 85;
-    const progress = Math.min((solReserves / targetSol) * 100, 99);
+    const progress = Math.min((solReserves / GRADUATION_THRESHOLD_SOL) * 100, 99);
     
     log(`   Progress: ${progress.toFixed(2)}%`, 'blue');
-    log(`   SOL Reserves: ${solReserves.toFixed(2)} / ${targetSol}`, 'blue');
+    log(`   SOL Reserves: ${solReserves.toFixed(2)} / ${GRADUATION_THRESHOLD_SOL}`, 'blue');
   }
   
   return hasGraduated;
