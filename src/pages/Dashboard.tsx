@@ -4,6 +4,7 @@ import { WalletContainer } from '@/components/containers/WalletContainer';
 import { SwarmContainer } from '@/components/containers/SwarmContainer';
 import { TransactionContainer } from '@/components/containers/TransactionContainer';
 import { EventLogContainer } from '@/components/containers/EventLogContainer';
+import { PumpDataContainer } from '@/components/containers/PumpDataContainer';
 import { WalletProvider } from '@/contexts/WalletContext';
 import { SwarmProvider } from '@/contexts/SwarmContext';
 import { NotificationListener } from '@/components/NotificationListener';
@@ -46,6 +47,10 @@ const Dashboard = () => {
 
               <div className="grid lg:grid-cols-2 gap-6">
                 <SwarmContainer />
+                <PumpDataContainer />
+              </div>
+
+              <div className="mt-6">
                 <TransactionContainer />
               </div>
 
