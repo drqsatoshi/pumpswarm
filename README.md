@@ -4,6 +4,42 @@
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
+## Pumpswarm - The Developer's Memecoin
+
+$NPM is a developer-friendly memecoin on Solana, currently on pump.fun bonding curve with automatic graduation to Raydium DEX when reaching ~$69k market cap.
+
+### Token Information
+- **Ticker**: $NPM
+- **Name**: bikini Claude
+- **Chain**: Solana
+- **Platform**: pump.fun
+- **Contract**: `EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump`
+- **Telegram**: https://t.me/pumpswarm
+- **Pump.fun**: https://pump.fun/coin/EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump
+
+## Testing the Swarm
+
+This project includes comprehensive testing scripts for the pump.fun environment:
+
+### Test Scripts
+
+```sh
+# Test swarm readiness and API integration
+npm run test:swarm
+
+# Test API endpoints with curl
+npm run test:curl
+
+# Run full test suite (swarm test + build)
+npm run test:all
+```
+
+### Test Results
+See [TEST_RESULTS.md](./TEST_RESULTS.md) for detailed test results and verification.
+
+### Production Deployment
+See [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) for production deployment checklist.
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
@@ -60,6 +96,25 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Features
+
+### Swarm Dashboard
+- Real-time swarm connection monitoring
+- Peer tracking and messaging
+- Event logging system
+
+### Pump.fun Integration
+- Token data fetching and display
+- Market cap tracking
+- Raydium graduation monitoring
+- Real-time data refresh
+- SOL reserves display
+
+### Wallet Integration
+- Solana wallet connection (TODO: requires @solana/wallet-adapter)
+- Transaction management
+- Balance tracking
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
@@ -71,3 +126,13 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Raydium Graduation
+
+When the token reaches ~$69,000 market cap on pump.fun:
+1. Token automatically graduates to Raydium DEX
+2. Liquidity migrates from pump.fun bonding curve to Raydium
+3. Token becomes tradable on Raydium
+4. Dashboard will reflect "GRADUATED TO RAYDIUM" status
+
+Monitor graduation progress in the dashboard's PUMP_DATA panel.

@@ -8,7 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:swarm": "node scripts/test-pump-api.js",
+    "test:curl": "bash scripts/test-curl.sh",
+    "test:all": "npm run test:swarm && npm run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
