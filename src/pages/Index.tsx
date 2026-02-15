@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { TerminalWindow } from '@/components/TerminalWindow';
 import { TokenInfo } from '@/components/TokenInfo';
+import { CoinMarketCapTicker } from '@/components/CoinMarketCapTicker';
 import { Footer } from '@/components/Footer';
 
 const Index = () => {
@@ -38,6 +39,19 @@ const Index = () => {
       </section>
 
       <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            <span className="text-primary">CoinMarketCap</span>{' '}
+            <span className="text-foreground">Ticker</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-12 font-mono">
+            // track $NPM on coinmarketcap
+          </p>
+          <CoinMarketCapTicker />
+        </div>
+      </section>
+
+      <section className="py-20 bg-muted/20">
         <div className="container mx-auto px-4 text-center">
           <div className="terminal-window rounded-xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 text-foreground">
