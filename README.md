@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**URL**: [solscan token address](https://solscan.io/token/EkMNiWoasYkSTXj5k4rMZhjoYRmuh4V1i1KbkJ5Ppump)
 
 ## Pumpswarm - The Developer's Memecoin
 
