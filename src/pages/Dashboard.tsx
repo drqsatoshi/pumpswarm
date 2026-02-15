@@ -8,7 +8,7 @@ import { PumpDataContainer } from '@/components/containers/PumpDataContainer';
 import { WalletProvider } from '@/contexts/WalletContext';
 import { SwarmProvider } from '@/contexts/SwarmContext';
 import { NotificationListener } from '@/components/NotificationListener';
-import { Terminal } from 'lucide-react';
+import { Terminal, Droplet, Gift, Vote } from 'lucide-react';
 
 const Dashboard = () => {
   return (
@@ -58,19 +58,66 @@ const Dashboard = () => {
                 <EventLogContainer />
               </div>
 
-              {/* TODO placeholders */}
+              {/* Feature Cards */}
               <div className="mt-6 grid md:grid-cols-3 gap-4">
-                <div className="terminal-window rounded-xl p-6 opacity-50">
-                  <h4 className="text-muted-foreground font-mono mb-2">{'// TODO: LIQUIDITY'}</h4>
-                  <p className="text-xs text-muted-foreground/50">Pool metrics and LP positions</p>
+                <div className="terminal-window rounded-xl p-6 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Droplet className="w-5 h-5 text-primary" />
+                    <h4 className="text-foreground font-mono font-semibold">Liquidity Pools</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Monitor pump.fun bonding curve liquidity and track SOL reserves
+                  </p>
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Bonding Curve:</span>
+                      <span className="text-foreground">Active</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Progress:</span>
+                      <span className="text-primary">→ Raydium</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="terminal-window rounded-xl p-6 opacity-50">
-                  <h4 className="text-muted-foreground font-mono mb-2">{'// TODO: AIRDROP'}</h4>
-                  <p className="text-xs text-muted-foreground/50">Claim interface with merkle proofs</p>
+
+                <div className="terminal-window rounded-xl p-6 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Gift className="w-5 h-5 text-primary" />
+                    <h4 className="text-foreground font-mono font-semibold">Community Rewards</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Holder rewards and developer incentive programs
+                  </p>
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Status:</span>
+                      <span className="text-foreground">Coming Soon</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Type:</span>
+                      <span className="text-primary">Dev Rewards</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="terminal-window rounded-xl p-6 opacity-50">
-                  <h4 className="text-muted-foreground font-mono mb-2">{'// TODO: GOVERNANCE'}</h4>
-                  <p className="text-xs text-muted-foreground/50">Voting and proposals</p>
+
+                <div className="terminal-window rounded-xl p-6 hover:border-primary/50 transition-colors">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Vote className="w-5 h-5 text-primary" />
+                    <h4 className="text-foreground font-mono font-semibold">Community Voice</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Participate in community decisions and protocol upgrades
+                  </p>
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Active Polls:</span>
+                      <span className="text-foreground">0</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Your Power:</span>
+                      <span className="text-primary">Connect</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
